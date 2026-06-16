@@ -1,4 +1,5 @@
 # Speech to Command FRC
+<img width="1920" height="930" alt="image" src="https://github.com/user-attachments/assets/fa9d940e-7f2c-4218-9b89-ea289c4329a1" />
 
 A laptop-side command listener for FRC robots. It runs a local browser GUI, listens to the laptop microphone with offline Vosk speech recognition, and publishes recognized commands to the robot over NetworkTables using RobotPy's `pyntcore` package.
 
