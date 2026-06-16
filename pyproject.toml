@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "speech-to-command-frc"
+version = "0.1.0"
+description = "Laptop-side speech command publisher for FRC NetworkTables"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pyntcore>=2026.2.2",
+  "sounddevice>=0.5.1",
+  "vosk>=0.3.45",
+]
+
+[project.scripts]
+speech-to-command-frc = "speech_to_command_frc.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

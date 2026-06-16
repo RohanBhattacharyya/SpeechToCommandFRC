@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Speech to Command FRC</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>Speech to Command FRC</h1>
+          <p id="summary">Idle</p>
+        </div>
+        <div class="toolbar">
+          <button id="startButton" class="primary" title="Start microphone listening">Start</button>
+          <button id="stopButton" title="Stop microphone listening">Stop</button>
+        </div>
+      </header>
+
+      <section class="status-strip" aria-live="polite">
+        <div>
+          <span class="label">Speech</span>
+          <strong id="speechStatus">Idle</strong>
+        </div>
+        <div>
+          <span class="label">NetworkTables</span>
+          <strong id="ntStatus">Disconnected</strong>
+        </div>
+        <div>
+          <span class="label">Sequence</span>
+          <strong id="sequence">0</strong>
+        </div>
+      </section>
+
+      <section class="layout">
+        <div class="panel command-panel">
+          <div class="panel-head">
+            <h2>Commands</h2>
+            <form id="addCommandForm" class="inline-form">
+              <input id="newCommand" name="command" type="text" autocomplete="off" placeholder="move diagonally">
+              <button title="Add command">Add</button>
+            </form>
+          </div>
+          <ul id="commandList" class="command-list"></ul>
+        </div>
+
+        <div class="panel settings-panel">
+          <h2>Robot</h2>
+          <div class="grid-form">
+            <label>
+              Team
+              <input id="teamNumber" type="number" min="0" step="1" inputmode="numeric">
+            </label>
+            <label>
+              Server
+              <input id="server" type="text" placeholder="10.00.00.2">
+            </label>
+            <label>
+              Table
+              <input id="tableName" type="text">
+            </label>
+            <label>
+              Vosk model
+              <input id="modelPath" type="text" placeholder="/path/to/vosk-model-small-en-us-0.15">
+            </label>
+            <label>
+              Debounce
+              <input id="debounce" type="number" min="0" step="0.1">
+            </label>
+            <label>
+              Sample rate
+              <input id="sampleRate" type="number" min="8000" step="1000">
+            </label>
+          </div>
+          <button id="saveButton" class="wide">Save settings</button>
+        </div>
+      </section>
+
+      <section class="panel monitor-panel">
+        <div>
+          <h2>Monitor</h2>
+          <p id="lastText" class="transcript">No transcript yet</p>
+          <p id="partialText" class="partial"></p>
+        </div>
+        <form id="testForm" class="test-form">
+          <input id="testText" type="text" autocomplete="off" placeholder="type a transcript to test matching">
+          <button title="Test transcript">Test</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
